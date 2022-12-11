@@ -28,9 +28,12 @@ def walk_steps(steps, dim):
     start = np.zeros(dim, int)
 
     for i in range(steps):
+        # 50/50 for +/-
         chance = rand.randrange(4)
+
+        # random direction
         r = rand.randrange(len(start))
-        
+
         if chance <= 1:
             start[r] += 1
 
@@ -52,8 +55,50 @@ def distance(x1, x2):
         return distance
                                     
 
-mult(100, 10000, 60)     
+#mult(100, 1000000, 5)
+
+
+def recurrence(dim):
+    initial = np.zeros(dim, int)
+    start = np.zeros(dim, int)
+    time = 0
+
+    # Get 'em rollin'
+    cchance = rand.randrange(4)
+    rr = rand.randrange(len(start))
+    #print(time, start)
     
+    if cchance <= 1:
+        start[rr] += 1
+
+    if cchance > 1:
+        start[rr] -= 1
+    time += 1
+
+    
+
+    while start != initial:
+        """if start != initial:
+            print('away')
+        elif start == initial:
+            print('HOME!!')"""
+            
+        chance = rand.randrange(4)
+        r = rand.randrange(len(start))
+
+        time += 1
+        
+        if chance <= 1:
+            start[r] += 1
+
+        if chance > 1:
+            start[r] -= 1
+
+        #print(time, start)
+
+    print('ReCURRED AFTER %i STEPS!!'%time)
+
+recurrence(1)
 
 
 def random_walk(n, pop):
