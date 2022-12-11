@@ -77,8 +77,8 @@ def recurrence(dim):
 
     
 
-    while start != initial:
-        """if start != initial:
+    while (start != initial).all:
+        """if (start != initial).all:
             print('away')
         elif start == initial:
             print('HOME!!')"""
@@ -98,7 +98,7 @@ def recurrence(dim):
 
     print('ReCURRED AFTER %i STEPS!!'%time)
 
-recurrence(1)
+recurrence(2)
 
 
 def random_walk(n, pop):
