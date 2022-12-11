@@ -60,39 +60,39 @@ def distance(x1, x2):
 
 def recurrence(dim):
     initial = np.zeros(dim, int)
-    start = np.zeros(dim, int)
+    loc = np.zeros(dim, int)
     time = 0
 
     # Get 'em rollin'
     cchance = rand.randrange(4)
-    rr = rand.randrange(len(start))
+    rr = rand.randrange(len(loc))
     #print(time, start)
     
     if cchance <= 1:
-        start[rr] += 1
+        loc[rr] += 1
 
     if cchance > 1:
-        start[rr] -= 1
+        loc[rr] -= 1
     time += 1
 
     
 
-    while (start != initial).all:
+    while (loc != initial).all:
         """if (start != initial).all:
             print('away')
         elif start == initial:
             print('HOME!!')"""
             
         chance = rand.randrange(4)
-        r = rand.randrange(len(start))
+        r = rand.randrange(len(loc))
 
         time += 1
         
         if chance <= 1:
-            start[r] += 1
+            loc[r] += 1
 
         if chance > 1:
-            start[r] -= 1
+            loc[r] -= 1
 
         #print(time, start)
 
