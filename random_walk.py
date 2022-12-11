@@ -23,23 +23,24 @@ def walk_dir(n):
         directions.append('x%i-'%(i+1))
     print(directions)
 
-def walk_steps(steps):
-    start = [0, 0, 0, 0]
+def walk_steps(steps, dim):
+    initial = np.zeros(dim, int)
+    start = np.zeros(dim, int)
 
     for i in range(steps):
         chance = rand.randrange(4)
-        r = rand.randrange(4)
+        r = rand.randrange(len(start))
         
         if chance <= 1:
             start[r] += 1
 
         if chance > 1:
             start[r] -= 1
-    print(start, distance([0,0,0,0], start))
+    print(start, distance(initial, start))
 
-def mult(n, steps):
+def mult(n, steps, dim):
     for i in range(n):
-        walk_steps(steps)
+        walk_steps(steps, dim)
 
 def distance(x1, x2):
     if len(x1) == len(x2):
@@ -51,7 +52,7 @@ def distance(x1, x2):
         return distance
                                     
 
-mult(1000, 1000)     
+mult(100, 10000, 60)     
     
 
 
