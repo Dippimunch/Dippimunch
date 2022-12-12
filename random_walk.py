@@ -67,6 +67,7 @@ def recurrence(dim):
     cchance = rand.randrange(4)
     rr = rand.randrange(len(loc))
     #print(time, start)
+    #print((loc == initial).all())
     
     if cchance <= 1:
         loc[rr] += 1
@@ -75,18 +76,25 @@ def recurrence(dim):
         loc[rr] -= 1
     time += 1
 
+    #print(((loc).all()))
+    #print(loc, initial)
     
-
-    while loc != initial:
-        #print((loc != initial).all)
+    comparison = loc != initial
+    #equal_arrays = comparison.all()
+    print(np.array_equal(loc, initial))
+    
+    while not np.array_equal(loc, initial):
+        
+        ###print((loc != initial).all())
         """print(loc, initial)
         if loc != initial:
             print('WORKING?')"""
-        
-        if loc != initial:
+
+        #print(loc, initial)
+        if not np.array_equal(loc, initial):
             print('away')
-        elif loc == initial:
-            print('HOME!!')
+        else:
+            print('HOME!')
             
         chance = rand.randrange(4)
         r = rand.randrange(len(loc))
@@ -101,6 +109,8 @@ def recurrence(dim):
             loc[r] -= 1
 
         #print(time, start)
+
+    print(loc, time)
 
     print('ReCURRED AFTER %i STEPS!!'%time)
 
