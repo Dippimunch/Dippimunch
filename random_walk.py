@@ -66,8 +66,6 @@ def recurrence(dim):
     # Get 'em rollin'
     cchance = rand.randrange(4)
     rr = rand.randrange(len(loc))
-    #print(time, start)
-    #print((loc == initial).all())
     
     if cchance <= 1:
         loc[rr] += 1
@@ -76,23 +74,10 @@ def recurrence(dim):
         loc[rr] -= 1
     time += 1
 
-    #print(((loc).all()))
-    #print(loc, initial)
-    
-    comparison = loc != initial
-    #equal_arrays = comparison.all()
-    print(np.array_equal(loc, initial))
-    
     while not np.array_equal(loc, initial):
-        
-        ###print((loc != initial).all())
-        """print(loc, initial)
-        if loc != initial:
-            print('WORKING?')"""
-
-        #print(loc, initial)
         if not np.array_equal(loc, initial):
-            print('away')
+            #print('away')
+            pass
         else:
             print('HOME!')
             
@@ -108,13 +93,9 @@ def recurrence(dim):
         if chance > 1:
             loc[r] -= 1
 
-        #print(time, start)
-
-    print(loc, time)
-
     print('ReCURRED AFTER %i STEPS!!'%time)
 
-recurrence(1)
+recurrence(10)
 
 
 def random_walk(n, pop):
