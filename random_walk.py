@@ -77,16 +77,22 @@ def recurrence(dim):
 
     
 
-    while (loc != initial).all:
-        """if (start != initial).all:
+    while loc != initial:
+        #print((loc != initial).all)
+        """print(loc, initial)
+        if loc != initial:
+            print('WORKING?')"""
+        
+        if loc != initial:
             print('away')
-        elif start == initial:
-            print('HOME!!')"""
+        elif loc == initial:
+            print('HOME!!')
             
         chance = rand.randrange(4)
         r = rand.randrange(len(loc))
 
         time += 1
+        print(loc, time)
         
         if chance <= 1:
             loc[r] += 1
@@ -98,7 +104,7 @@ def recurrence(dim):
 
     print('ReCURRED AFTER %i STEPS!!'%time)
 
-recurrence(2)
+recurrence(1)
 
 
 def random_walk(n, pop):
