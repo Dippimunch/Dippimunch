@@ -15,6 +15,7 @@ import math
 # I guess it makes sense if x+1 then the doubled term is +1*2 as well
 
 dimension = 2
+run = True
 
 def walk_dir(n):
     directions = []
@@ -73,7 +74,8 @@ def recurrence(dim):
     if cchance > 1:
         loc[rr] -= 1
     time += 1
-
+    
+    
     while not np.array_equal(loc, initial):
         if not np.array_equal(loc, initial):
             #print('away')
@@ -85,7 +87,7 @@ def recurrence(dim):
         r = rand.randrange(len(loc))
 
         time += 1
-        print(loc, time)
+        print(loc, time, distance(loc, initial))
         
         if chance <= 1:
             loc[r] += 1
@@ -95,7 +97,7 @@ def recurrence(dim):
 
     print('ReCURRED AFTER %i STEPS!!'%time)
 
-recurrence(10)
+recurrence(18)
 
 
 def random_walk(n, pop):
